@@ -1,0 +1,17 @@
+README includes: title, description, table of contents, installation, usage info, license, contributing, tests, questions
+
+ask for the title, description, table of contets, installation, usage info, contribution guidline, test instructions
+	- create a section for each and write to readme
+
+give a list of options for the license
+	- add a badge for the license that is added near the top of the readme and fill in the license section
+
+ask for github username, email
+	- (username) add it to the questions section with a link to the github profile
+	- (email) add to questions section with instructions on how to reach them
+
+when you click on links in the TOC
+	- takes user to that section
+
+make a walkthrough video demonstrating the functionality of the application
+make a readme.md
