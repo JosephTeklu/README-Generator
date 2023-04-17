@@ -1,6 +1,8 @@
 README includes: title, description, table of contents, installation, usage info, license, contributing, tests, questions
 
 ask for the title, description, table of contets, installation, usage info, contribution guidline, test instructions
+	- refer to https://codeing-boot-camp.github.io/full-stack/github/professional-readme-guide 
+	- and give examples of what to include in each question
 	- create a section for each and write to readme
 
 give a list of options for the license
@@ -15,3 +17,4 @@ when you click on links in the TOC
 
 make a walkthrough video demonstrating the functionality of the application
 make a readme.md
+
