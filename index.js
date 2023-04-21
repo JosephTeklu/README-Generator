@@ -1,54 +1,56 @@
+// loading up libraries needed for file minuplitation and user input
 const inquirer = require('inquirer');
+const fs = require("fs");
 
-// TODO: Create an array of questions for user input
-// write the questions in a file and output them one by one
-const questions = [];
+// array for questions to ask the user
+var questions = [];
+// array for collecting user's answers
+var answers = [];
 
 function askQuestions(){
-  const fs = require("fs");
-  const readline = require("readline");
-  const text = fs.createReadStream("./questions.txt")
+  // populate the questions array from the text file
+  questions = fs.readFileSync('./questions.txt').toString().split(":");
 
-  // populate the array with the questions from questions.txt
-  const rl = readline.createInterface({
-    input: text,
-  })
-  rl.on("line",(lineText)=> {
-    questions.push(toString(lineText));
-  })
-  console.log("here" + questions.length)
-  for (let i = 0; i < questions.length; i++) {
-    console.log("here");
-    console.log(questions[i] + ":" + i)
-    
+  // loop through the questions array and ask the user what they world like in their README.md
+  for (i in questions) 
+  {
+    // output for greeting
+    if(i == 0)
+    {
+      inquirer
+      .prompt([
+        {
+          type: 'confirm',
+          message: `${questions[i]}`,
+          name: 'response',
+        },
+      ])
+    }
+    if(i == 1 | i == 2 | i == 3 | i == 4 | i == 5 | i == 6 | i == 7)
+    {
+      inquirer
+      .prompt([
+        {
+          type: 'input',
+          message: `${questions[i]}`,
+          name: 'response'
+        },
+      ])  
+      .then((response)=>
+        writeToFile(response)
+      );
+    }
   }
-
-
-
-  // // welcome the user to the application
-  // console.log("\n---------------------------------")
-  // console.log("   Welcome to README Generator\n");
-
-  // for (let i = 0; i < questions.length; i+2) {
-  //   inquirer
-  //   .prompt([
-  //     {
-  //       type: 'input',
-  //       message: `${questions[0]} \n ${questions[1]}`,
-  //       name: 'project name',
-  //     },
-  //   ])
-  //   .then((response) =>{
-  //     // create the readme file and add it here
-  //   });
-  // }
 
 }
 
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+  answers.push(data);
+
+}
 
 // TODO: Create a function to initialize app
 function init() {

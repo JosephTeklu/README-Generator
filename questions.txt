@@ -1,25 +1,25 @@
-What is the name of your project?
-Make sure your title is 3 or less words that describe your project.
 
+---------------------------------
+Welcome to README Generator
+:
+What is the name of your project?
+Make sure your title is 3 or less words that describe your project.:
 Now lets work on the description.
 Provide a short paragraph explaning the what, why, and how of your project.
-What was your motivation?
-Why did you build this project?
-What problem does it solve?
-What did you learn?
-
-What would you like to add in your table of contents?
-This will help your users find what they need.
-
+What was your motivation? Why did you build this project? What problem does it solve? What did you learn?:
 Installation
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
-
+What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.:
 Usage
-Provide small instructions and examples for use.
-
+Provide small instructions and examples for use.:
+Contributing Guidlines
+If you would like other developers to contribute write a short description on how to help.:
+Tests
+Provide examples on how to run tests here.:
+Questions
+Provide your github username as well as your email for users to contat you about your project.
 License
-A high-quality README includes a license. This lets other developers know what they can and cannot do with your project. Pick one of the options below and a license will be created for you.
-None
+A high-quality README includes a license. This lets other developers know what they can and cannot do with your project.
+Pick one of the options below and a license will be created for you.
 Apache License 2.0
 GNU General Public License v3.0
 MIT License
@@ -33,12 +33,6 @@ GNU General Public License v2.0
 GNU Lesser General Public License v2.1
 Mozilla Public License 2.0
 The Unlicense
-
-Contributing Guidlines
-If you would like other developers to contribute write a short description on how to help.
-
-Tests
-Provide examples on how to run tests here.
-
-Questions
-Provide your github username as well as your email for users to contat you about your project
+None:
+What would you like to add in your table of contents?
+This will help your users find what they need.:
