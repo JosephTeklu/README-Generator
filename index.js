@@ -1,63 +1,40 @@
-// loading up libraries needed for file minuplitation and user input
 const inquirer = require('inquirer');
 const fs = require("fs");
+const markdown = require("./utils/generateMarkdown.js");
+const generateMarkdown = require('./utils/generateMarkdown');
 
-// array for questions to ask the user
-var questions = [];
-// array for collecting user's answers
-var answers = [];
-
-function askQuestions(){
-  // populate the questions array from the text file
-  questions = fs.readFileSync('./questions.txt').toString().split(":");
-
-  // loop through the questions array and ask the user what they world like in their README.md
-  for (i in questions) 
-  {
-    // output for greeting
-    if(i == 0)
-    {
-      inquirer
-      .prompt([
-        {
-          type: 'confirm',
-          message: `${questions[i]}`,
-          name: 'response',
-        },
-      ])
-    }
-    if(i == 1 | i == 2 | i == 3 | i == 4 | i == 5 | i == 6 | i == 7)
-    {
-      inquirer
-      .prompt([
-        {
-          type: 'input',
-          message: `${questions[i]}`,
-          name: 'response'
-        },
-      ])  
-      .then((response)=>
-        writeToFile(response)
-      );
-    }
-  }
-
-}
-
-
+// filled up array with objects to send to inquirer 
+var questions = [
+{type: "confirm", message:"Welcome to README Generator\n\n", name:"greeting"},
+{type: "input", message:"What is the title of your project?\nMake sure your title is 3 or less words that describe your project.\n\n", name:"title"},
+{type: "input", message:"Now lets work on the description.\nProvide a short paragraph explaning the what, why, and how of your project.\nWhat was your motivation? Why did you build this project? What problem does it solve? What did you learn?\n\n", name:"description"},
+{type: "input", message:"Installation\nWhat are the steps required to install your project?\nProvide a step-by-step description of how to get the development environment running.\n\n", name:"installation"},
+{type: "input", message:"Usage\nProvide small instructions and examples for use.\n\n", name:"usage"},
+{type: "input", message:"Contributing Guidlines\nIf you would like other developers to contribute write a short description on how to help.\n\n", name:"contributing"},
+{type: "input", message:"Tests\nProvide examples on how to run tests here.\n\n", name:"tests"},
+{type: "input", message:"Questions\nProvide your github username as well as your email for users to contat you about your project.\n\n", name:"questions"},
+{type:"list", message:"License\nA high-quality README includes a license. This lets other developers know what they can and cannot do with your project.\nPick one of the options below and a license will be created for you.\n\n", name:"license",
+choices:["Apache License 2.0","GNU General Public License v3.0","MIT License","BSD 2-Clause ","BSD 3-Clause","Boost Software License 1.0","Creative Commons Zero v1.0 Universal","Eclipse Public License 2.0","GNU Affero General Public License v3.0","GNU General Public License v2.0","GNU Lesser General Public License v2.1","Mozilla Public License 2.0","The Unlicense","None"]},
+{type:"checkbox", message:"What would you like to add in your table of contents, this will help your users easily access what they need.\n\n", name:"toc",
+choices:["Description","Installation","Usage","Contributing Guidlines","Tests","Questions","License"]},
+{type:"input", message:"What would you like to name this file?\n\n", name:"fileName"}];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  answers.push(data);
-
+function writeToFile(fileName, ...data) {
+  fs.writeFile(fileName,"##helloo", (err) =>
+    err? console.error(error) : console.log(data)
+  );
 }
 
 // TODO: Create a function to initialize app
 function init() {
-
-  askQuestions();
-
+  // sending inquirer the array and it will output each question one by one
+  inquirer.prompt(questions) 
+  .then((response)=>{
+    // send the name of the file as well as the responses
+    writeToFile(response.fileName, response.title, response.installation, response.usage, response.contributing, response.tests, response.questions, response.license, response.toc)
+  });
 }
 
-// Function call to initialize app
 init();
+ 
