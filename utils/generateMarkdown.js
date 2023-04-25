@@ -21,7 +21,7 @@ function renderLicenseLink(license) {}
 function renderLicenseSection(license) {
 
 }
-
+// https://shields.io/category/license
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   // change choices to match what was asked
