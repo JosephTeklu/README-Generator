@@ -14,9 +14,9 @@ var questions = [
 {type: "input", message:"Tests\nProvide examples on how to run tests here.\n\n", name:"tests"},
 {type: "input", message:"Questions\nProvide your github username as well as your email for users to contat you about your project.\n\n", name:"questions"},
 {type:"list", message:"License\nA high-quality README includes a license. This lets other developers know what they can and cannot do with your project.\nPick one of the options below and a license will be created for you.\n\n", name:"license",
-choices:["Apache License 2.0","GNU General Public License v3.0","MIT License","BSD 2-Clause ","BSD 3-Clause","Boost Software License 1.0","Creative Commons Zero v1.0 Universal","Eclipse Public License 2.0","GNU Affero General Public License v3.0","GNU General Public License v2.0","GNU Lesser General Public License v2.1","Mozilla Public License 2.0","The Unlicense","None"]},
-{type:"checkbox", message:"What would you like to add in your table of contents, this will help your users easily access what they need.\n\n", name:"toc",
-choices:["Description","Installation","Usage","Contributing Guidlines","Tests","Questions","License"]},
+choices:["Apache License 2.0","MIT","IBM", "Perl"]},
+{type:"confirm", message:"Would you like to add a table of contents, this will help your users easily access what they need.\n\n", name:"toc"},
+// choices:["Description","Installation","Usage","Contributing Guidlines","Tests","Questions","License"]},
 {type:"input", message:"What would you like to name this file?\n\n", name:"fileName"}];
 
 // TODO: Create a function to write README file
@@ -33,8 +33,6 @@ function init() {
   .then((response)=>{
     // send the name of the file as well as the responses
     writeToFile(response.fileName, generateMarkdown({...response}))
-    //     writeToFile(response.fileName, response.title, response.installation, response.usage, response.contributing, response.tests, response.questions, response.license, response.toc)
-
   });
 }
 
