@@ -20,9 +20,9 @@ choices:["Description","Installation","Usage","Contributing Guidlines","Tests","
 {type:"input", message:"What would you like to name this file?\n\n", name:"fileName"}];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, ...data) {
-  fs.writeFile(fileName,"##helloo", (err) =>
-    err? console.error(error) : console.log(data)
+function writeToFile(fileName, data) {
+  return fs.writeFileSync(fileName,data, (err) =>
+    err? console.error(err) : console.log(data)
   );
 }
 
@@ -32,7 +32,9 @@ function init() {
   inquirer.prompt(questions) 
   .then((response)=>{
     // send the name of the file as well as the responses
-    writeToFile(response.fileName, response.title, response.installation, response.usage, response.contributing, response.tests, response.questions, response.license, response.toc)
+    writeToFile(response.fileName, generateMarkdown({...response}))
+    //     writeToFile(response.fileName, response.title, response.installation, response.usage, response.contributing, response.tests, response.questions, response.license, response.toc)
+
   });
 }
 
