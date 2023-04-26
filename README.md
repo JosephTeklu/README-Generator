@@ -12,7 +12,7 @@
 ## Installation 
   Clone the repository to your local machine. In the directory run (npm i -y) then node (index.js) to run the program
 ## Usage 
-  Answer the prompts about each section of the readme. This program also includes some discriptions of what to add in each section as a helping guide. Then give the readme a name and you're all set.
+  Answer the prompts about each section of the readme. This program also includes some discriptions of what to add in each section as a helping guide. Then give the readme a name and you're all set. A link to a video showing how to use this program: https://watch.screencastify.com/v/xuTS3Z9WHmUr2T3t6TZR 
 ## Contributing 
   Right now no contribution is necessary.
 ## Tests 
